@@ -21,11 +21,16 @@ import {
 const AuthContext = React.createContext({
 
   signInGoogleMobile: () => {},
+  getNumber: () : number => {return getNumber();},
 
 });
 
 export function useAuth() {
   return useContext(AuthContext);
+}
+
+const getNumber = (): number =>{
+  return 3;
 }
 
 const signInGoogleMobile = async () => {
@@ -73,7 +78,7 @@ export function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         signInGoogleMobile,
-   
+        getNumber,
       }}
     >
       {children}
